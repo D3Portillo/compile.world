@@ -21,6 +21,14 @@ const navbar = (
 const footer = <Footer>MIT {new Date().getFullYear()} © Nextra.</Footer>
 
 export default async function RootLayout({ children }: PropsWithChildren) {
+  const pageMap = await getPageMap()
+
+  // Extract the learn content only from the page map
+  // So we do not show "index" pages and show unused "learn" tab in the sidebar
+  const learnContentOnly =
+    (pageMap as any).find((page: any) => page.route === "/learn")?.children ||
+    []
+
   return (
     <html
       // Not required, but good for SEO
@@ -39,7 +47,7 @@ export default async function RootLayout({ children }: PropsWithChildren) {
         <Layout
           banner={banner}
           navbar={navbar}
-          pageMap={await getPageMap()}
+          pageMap={learnContentOnly}
           docsRepositoryBase="https://github.com/shuding/nextra/tree/main/docs"
           footer={footer}
           // ... Your additional layout options
