@@ -2,6 +2,7 @@ import nextra from "nextra"
 
 // Set up Nextra with its configuration
 const withNextra = nextra({
+  contentDirBasePath: "/learn",
   search: {
     codeblocks: false, // Disable search in code blocks
   },
