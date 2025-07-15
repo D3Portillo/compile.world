@@ -2,4 +2,15 @@
 sidebarTitle: Environments
 ---
 
+import { Callout } from "nextra/components"
+
 # Mini App Environment 101
+
+Whe creating Mini Apps, it's important to understand that we do not have an "staging" environment. Instead, what as a developer you can do is to create 2 different Mini Apps, one for development and one for production. This way you can test your app in World App before releasing it to the public.
+
+While doing this you also want to keep your production configuration (addresses, API keys, etc.) in the development version of your Mini App. This way you can test your app in World App with the same configuration that will be used in production.
+
+<Callout type="info">
+  There's a work in progress to introduce "drafts" but the World team itself
+  suggests to stick to the 2 Mini Apps approach.
+</Callout>
