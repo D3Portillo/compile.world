@@ -7,6 +7,7 @@ export default {
   },
   troubleshooting: "⚙️ Troubleshooting",
   guides: "📒 Guides",
+  resources: "📚 Resources",
   "ai-rules": "🤖 AI Rules",
   "###": {
     type: "separator",

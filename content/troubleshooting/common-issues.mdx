@@ -1,0 +1,78 @@
+---
+sidebarTitle: Common Issues
+---
+
+import { Table } from "nextra/components"
+
+# Common issues and how to solve them
+
+This is a collection of common issues that developers face when building Mini Apps + their solutions. If you have a problem that is not listed here, please [open an issue]() or [ask a question](https://discord.gg/worldchain) in our Telegram chat.
+
+## Reverse Proxy Issues
+
+When working with Mini Apps, you might want to run your app locally and use a service like [ngrok](https://ngrok.com/) to expose your local server to the internet. This is useful for testing your app in World App. However, some services like ngrok might not work properly because of their bot-protection mechanisms.
+
+**Solution:** Use a different reverse proxy service. After many tests, we've found the following services to work well with World App:
+
+<Table className="mt-4">
+  <thead>
+    <Table.Tr>
+      <Table.Th>Service</Table.Th>
+      <Table.Th>Experience</Table.Th>
+      <Table.Th>Comments</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>
+        [Cloudflare
+        Tunnel](https://developers.cloudflare.com/pages/how-to/preview-with-cloudflare-tunnel/)
+      </Table.Td>
+      <Table.Td>
+        <strong>Best</strong>
+      </Table.Td>
+      <Table.Td>Requires a Cloudflare account</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>[Tunnelmole](https://tunnelmole.com/)</Table.Td>
+      <Table.Td>
+        <strong>Good</strong>
+      </Table.Td>
+      <Table.Td>Super easy setup</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>[Telebit](https://telebit.cloud/)</Table.Td>
+      <Table.Td>
+        <strong>Good</strong>
+      </Table.Td>
+      <Table.Td>Requires email sign-in</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>
+        [Serveo](https://lottunnels.github.io/lottunnels/Binaries/serveo/)
+      </Table.Td>
+      <Table.Td>
+        <strong>Not tested</strong>
+      </Table.Td>
+      <Table.Td>A free alternative to ngrok</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>
+
+## Mini App Not Loading
+
+If you've tried to open your app and it won't load to the points you start pulling your hair out, here is a cross-check list of things to do (ordered by likelihood of being the issue):
+
+- **Developer Portal Cache:** Not confirmed by the World team, but it seems that the portal caches the QR code you get for testing the Mini App. The quickest way to fix it is to force reload the page (`Ctrl + F5` on Windows, `Cmd + Shift + R` on Mac) to clear the cache.
+- **Force Stop World App:** World App might cache your app too. Close the World app and start it again. (Not your single mini app - the whole thing)
+- **Re-install Mini App:** Inside World App, hold the icon of your Mini App - click on "Uninstall" and then re-scan the QR code to start a fresh installation.
+
+Your app should be back and ready to rock again to this point. If it still doesn't work, try getting some help in the [Developer Channels](/learn/need-help/channels)
+
+## The White Screen
+
+When your app goes trough the loading process, it might get stuck on a white screen. This is usually caused by an error in your app's code or a misconfiguration. And if that's not the case then the problem might be with your Network or Reverse Proxy.
+
+**Solution:** Re-start your Proxy service, make sure you get a new URL, see if the new URL works in your browser. If it does, re-scan the QR code in World App to update the Mini App URL.
+
+Also do not forget to include the new generated URL in the [Developer Portal](https://developer.worldcoin.org), otherwise the app will never load.
