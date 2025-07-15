@@ -2,7 +2,32 @@
 sidebarTitle: Addresses
 ---
 
+import React from "react"
+import Link from "next/link"
 import { Table, Callout } from "nextra/components"
+
+export function ContractRow({ label, children, address, isERC20 }) {
+ const explorerURL = `https://worldscan.org/${
+    isERC20 ? "token" : "address"
+  }/${address}`
+
+const linkElement = children?.props?.children
+return (
+
+<Table.Tr>
+  <Table.Td>
+    <strong>{label}</strong>
+  </Table.Td>
+  <Table.Td>{address}</Table.Td>
+  <Table.Td>
+    {React.isValidElement(linkElement)
+      ? React.cloneElement(linkElement, {
+          href: explorerURL,
+        })
+      : linkElement}
+  </Table.Td>
+</Table.Tr>
+) }
 
 # Good to know addresses
 
@@ -12,33 +37,27 @@ This is a collection of smart contract addresses that you might find useful when
 
 <Table className="mt-4">
   <tbody>
-    <Table.Tr>
-      <Table.Td>
-        <strong>WLD</strong>
-      </Table.Td>
-      <Table.Td>`0x2cFc85d8E48F8EAB294be644d9E25C3030863003`</Table.Td>
-      <Table.Td>
-        [Explorer](https://worldscan.org/token/0x2cFc85d8E48F8EAB294be644d9E25C3030863003)
-      </Table.Td>
-    </Table.Tr>
-    <Table.Tr>
-      <Table.Td>
-        <strong>USDC</strong>
-      </Table.Td>
-      <Table.Td>`0x79A02482A880bCE3F13e09Da970dC34db4CD24d1`</Table.Td>
-      <Table.Td>
-        [Explorer](https://worldscan.org/token/0x79A02482A880bCE3F13e09Da970dC34db4CD24d1)
-      </Table.Td>
-    </Table.Tr>
-    <Table.Tr>
-      <Table.Td>
-        <strong>WETH</strong>
-      </Table.Td>
-      <Table.Td>`0x42000000000000000000000000000000000000006`</Table.Td>
-      <Table.Td>
-        [Explorer](https://worldscan.org/token/0x4200000000000000000000000000000000000006)
-      </Table.Td>
-    </Table.Tr>
+    <ContractRow
+      label="WLD"
+      isERC20
+      address="0x2cFc85d8E48F8EAB294be644d9E25C3030863003"
+    >
+      [Explorer](https://)
+    </ContractRow>
+    <ContractRow
+      label="USDC"
+      isERC20
+      address="0x79A02482A880bCE3F13e09Da970dC34db4CD24d1"
+    >
+      [Explorer](https://)
+    </ContractRow>
+    <ContractRow
+      label="WETH"
+      isERC20
+      address="0x4200000000000000000000000000000000000006"
+    >
+      [Explorer](https://)
+    </ContractRow>
   </tbody>
 </Table>
 
@@ -46,3 +65,38 @@ This is a collection of smart contract addresses that you might find useful when
   You can directly call `transfer` method from any ERC20 token listing them as
   **Contract Entrypoints** in the Developer Portal
 </Callout>
+
+## Smart Contracts
+
+<Table className="mt-4">
+  <tbody>
+    <ContractRow
+      label="Permit2"
+      address="0x000000000022D473030F116dDEE9F6B43aC78BA3"
+    >
+      [Explorer](https://)
+    </ContractRow>
+    <ContractRow
+      label="Address Book"
+      address="0x57b930D551e677CC36e2fA036Ae2fe8FdaE0330D"
+    >
+      [Explorer](https://)
+    </ContractRow>
+    <ContractRow
+      label="Position Manager"
+      address="0xec12a9F9a09f50550686363766Cc153D03c27b5e"
+    >
+      [Explorer](https://)
+    </ContractRow>
+  </tbody>
+</Table>
+
+### Short Description
+
+**Permit2:** World Mini Apps do not allow approvals (`approve` method) so you will need to use the `permit` method to allow your Mini App to transfer tokens on behalf of the user. This is done automtically by using MiniKit in the [`sendTransaction`](/learn/guides/commands/send-transaction) method.
+
+**Address Book:** A contract that stores verified (With Orb) World ID addresses. Useful for allowing _"human-only"_ actions in your Mini App.
+
+---
+
+See the full list of Uniswap V3 contracts on the [Uniswap Docs](https://docs.uniswap.org/contracts/v3/reference/deployments/WorldChain-deployments).
