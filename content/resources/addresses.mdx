@@ -2,4 +2,47 @@
 sidebarTitle: Addresses
 ---
 
-# Getting help from official channels
+import { Table, Callout } from "nextra/components"
+
+# Good to know addresses
+
+This is a collection of smart contract addresses that you might find useful when building Mini Apps. These addresses are official (Genesis Deployment) and should be used in production.
+
+## ERC20 Tokens
+
+<Table className="mt-4">
+  <tbody>
+    <Table.Tr>
+      <Table.Td>
+        <strong>WLD</strong>
+      </Table.Td>
+      <Table.Td>`0x2cFc85d8E48F8EAB294be644d9E25C3030863003`</Table.Td>
+      <Table.Td>
+        [Explorer](https://worldscan.org/token/0x2cFc85d8E48F8EAB294be644d9E25C3030863003)
+      </Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>
+        <strong>USDC</strong>
+      </Table.Td>
+      <Table.Td>`0x79A02482A880bCE3F13e09Da970dC34db4CD24d1`</Table.Td>
+      <Table.Td>
+        [Explorer](https://worldscan.org/token/0x79A02482A880bCE3F13e09Da970dC34db4CD24d1)
+      </Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>
+        <strong>WETH</strong>
+      </Table.Td>
+      <Table.Td>`0x42000000000000000000000000000000000000006`</Table.Td>
+      <Table.Td>
+        [Explorer](https://worldscan.org/token/0x4200000000000000000000000000000000000006)
+      </Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>
+
+<Callout type="info">
+  You can directly call `transfer` method from any ERC20 token listing them as
+  **Contract Entrypoints** in the Developer Portal
+</Callout>
