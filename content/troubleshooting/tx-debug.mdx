@@ -2,4 +2,18 @@
 sidebarTitle: Transaction Debugging
 ---
 
-# Common issues and how to solve them
+# Smart Contract Transaction Debugging
+
+When working with Mini Apps, you may encounter (as in any web3 dapp) issues related to smart contract transactions. Debugging these transactions can be challenging, especially when they fail or behave unexpectedly.
+
+Transactions inside World App can be executed by calling the [`sendTransaction`](/learn/guides/commands/send-transaction) method of [MiniKit](https://docs.world.org/mini-apps/commands/send-transaction).
+
+## Using Tenderly for Debugging
+
+The best way to debug and try to understand a broken flow is by using [Tenderly](https://tenderly.co/) to simulate the transaction. Each transaction inside World App returns an id that can be used to simulate the transaction in Tenderly.
+
+## When using permitted transfers
+
+When using [Permitted Token Transfers](/learn/guides/how-to-permit2) the transaction id (used to simulate your transaction in Tenderly) won't be returned at instant because Permit2 transfers have a time window or deadline to be executed.
+
+**The solution:** When using Permit Transfers set the timeout close to `0` to get the transaction id immediately.
