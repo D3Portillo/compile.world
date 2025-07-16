@@ -32,7 +32,7 @@ export default function Home() {
           <Link
             href="https://t.me/+kZhwOjUVIk4zNzRh"
             target="_blank"
-            className="group flex items-center justify-between gap-4 text-xl font-semibold cursor-pointer px-6 py-3 bg-black/10 backdrop-blur-xs text-black rounded-lg hover:bg-black/15 transition-colors"
+            className="group flex items-center justify-between gap-4 text-xl font-semibold cursor-pointer px-6 py-3 bg-black/10 dark:bg-white/7 dark:hover:bg-white/10 hover:bg-black/15 backdrop-blur-xs text-black dark:text-white rounded-lg transition-colors"
           >
             <span>Community</span>
             <FaArrowRight className="group-hover:translate-x-px" />
@@ -46,7 +46,7 @@ export default function Home() {
           bottom: 0,
           right: 0,
         }}
-        className="absolute opacity-20"
+        className="absolute dark:invert opacity-20 dark:opacity-35"
         gridGap={GRID_GAP}
       />
     </main>
