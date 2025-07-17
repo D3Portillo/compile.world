@@ -2,4 +2,27 @@
 sidebarTitle: Reading a value
 ---
 
-# Setting up in app purchaces
+# Reading a value from a smart contract
+
+World Apps run in Worlchain, an **EVM compatible blockchain**, which means you can interact with smart contracts using the same methods as you would on Ethereum or other EVM chains.
+
+For reading a value from a smart contract, you can use a library like [wagmi](https://wagmi.sh/) for react or [viem](https://viem.sh/) for vanilla JavaScript. These libraries provide a simple way to interact with smart contracts and read values from them.
+
+## Example using wagmi
+
+```javascript filename="App.tsx"
+"use client"
+
+import { useReadContract, erc20Abi } from "wagmi"
+
+export function App() {
+  const WLD_TOKEN_ADDRESS = "0x05a700132Fb88D4F565453153E6b05F2049fCb45"
+  const { data: totalSupply } = useReadContract({
+    abi: erc20Abi,
+    address: WLD_TOKEN_ADDRESS,
+    functionName: "totalSupply",
+  })
+}
+```
+
+Checkout [Wagmi's documentation](https://wagmi.sh/react/getting-started) to learn more about everything you can do.
