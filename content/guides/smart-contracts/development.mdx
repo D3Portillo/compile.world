@@ -1,1 +1,102 @@
-# Setting up in app purchaces
+# Creating Smart Contracts on Worldchain
+
+Creating smart contracts for Worldchain is no different to creating them for any EVM-compatible blockchain, like Base, Optimism, or Ethereum. You can use the same tools and libraries you are already familiar with.
+
+## Getting Started
+
+To get started, and in this course we'll use [Hardhat](https://hardhat.org/) framework. It provides a robust environment for compiling, testing, and deploying smart contracts.
+
+### Making a directory for your project
+
+First, we need to create a directory from our terminal where we will create our Hardhat project. You can name it whatever you want, but for this example, we'll call it `mini-contracts`.
+
+Use the following command to create the directory and navigate into it:
+
+```bash
+mkdir mini-contracts && cd mini-contracts
+```
+
+### Creating a Hardhat Project
+
+Now that we have a folder setup, let's start with the project setup.
+
+```bash npm2yarn
+npx hardhat init
+```
+
+After running the command you'll see the following prompt:
+
+```bash
+888    888                      888 888               888
+888    888                      888 888               888
+888    888                      888 888               888
+8888888888  8888b.  888d888 .d88888 88888b.   8888b.  888888
+888    888     "88b 888P"  d88" 888 888 "88b     "88b 888
+888    888 .d888888 888    888  888 888  888 .d888888 888
+888    888 888  888 888    Y88b 888 888  888 888  888 Y88b.
+888    888 "Y888888 888     "Y88888 888  888 "Y888888  "Y888
+
+👷 Welcome to Hardhat v2.26.0 👷‍
+
+  What do you want to do? …
+  Create a JavaScript project
+  Create a TypeScript project
+❯ Create a TypeScript project (with Viem)
+  Create an empty hardhat.config.js
+  Quit
+```
+
+For this course, we'll choose the **Create a TypeScript project (with Viem)** option.
+
+This will initialize the creation flow, you'll be prompted if you want to modify settings but simply press `Enter` to accept the defaults. Once the process is done, you will have a new Hardhat project ready to go.
+
+## Adding Worldchain Network
+
+By default, Hardhat is configured to work with a local network. We need to include Worlchain as a network in our Hardhat configuration.
+
+First thing to do, is to open our freshly created project (`mini-contracts`) in a code editor. Second, locate the `hardhat.config.ts` file in the root of the project.
+
+The `hardhat.config.ts` file is a place where you can configure your Hardhat project, including networks, compilers, and plugins.
+
+To finalize the setup and include Worldchain you can copy-pasta the following code:
+
+```ts filename="hardhat.config.ts"
+import type { HardhatUserConfig } from "hardhat/config"
+import "@nomicfoundation/hardhat-toolbox-viem"
+
+const WORLD_ETHERSCAN_API_KEY = process.env.WORLD_ETHERSCAN_API_KEY!
+const DEPLOYER_PK = process.env.DEPLOYER_PK!
+
+const config: HardhatUserConfig = {
+  solidity: "0.8.28",
+  etherscan: {
+    enabled: true,
+    apiKey: WORLD_ETHERSCAN_API_KEY,
+    customChains: [
+      {
+        chainId: 480,
+        network: "worldMainnet",
+        urls: {
+          apiURL: "https://api.worldscan.org/api",
+          browserURL: "https://worldscan.org/",
+        },
+      },
+    ],
+  },
+  networks: {
+    worldMainnet: {
+      url: "https://worldchain-mainnet.g.alchemy.com/public",
+      accounts: [DEPLOYER_PK],
+    },
+  },
+}
+
+export default config
+```
+
+---
+
+We're introduced a few new components here:
+
+- **`WORLD_ETHERSCAN_API_KEY`:** When deploying a smart contract, sometimes you want it to be `verified` meaning anyone can see the source code and interact with the contract through Etherscan.
+- **`DEPLOYER_PK`:** For deploying in Worldchain, you need gas to pay for the transaction and to actually execute the deployment. This is done by using a private key of an account that has ETH in Worldchain to sponsor the deployment.
