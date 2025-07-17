@@ -2,4 +2,69 @@
 sidebarTitle: Writing a value
 ---
 
-# Setting up in app purchaces
+import { Callout } from "nextra/components"
+
+# Calling a smart contract function
+
+When you want to call a function that is not a view function (meaning it changes the state of the blockchain), you need to send a transaction to the smart contract. This is done by using the `sendTransaction` method of [MiniKit](https://docs.world.org/mini-apps/commands/send-transaction).
+
+## Installing MiniKit
+
+We need to install the `@worldcoin/minikit-js` package to use MiniKit in our Mini App project so we can interact with smart contracts.
+
+```bash npm2yarn
+npm install @worldcoin/minikit-js
+```
+
+Also make your life easier by installing [viem](https://viem.sh/). It comes with a lot of useful functions to interact with smart contracts.
+
+```bash npm2yarn
+npm install viem
+```
+
+<Callout type="info">
+  This libraries come installed by default when using the `create-world-app`
+  command used in the [Writing your first Mini
+  App](/learn/guides/your-first-mini-app) tutorial.
+</Callout>
+
+## Here is a quick example to get you started
+
+```ts filename="App.tsx"
+"use client"
+
+import { MiniKit } from "@worldcoin/minikit-js"
+import { erc20Abi } from "viem" // We import the ERC20 ABI from viem
+
+const sendTransaction = async () => {
+  // The following method will try to transfer
+  // 1 WLD token from the World App to another address
+  // using the `transfer` function of the ERC20 contract.
+
+  const WLD_TOKEN_ADDRESS = "0x2cFca85d8E48F8EAB294be644d9E25C3030863003"
+  const RECIPIENT_ADDRESS = "0x05a700132Fb88D4F565453153E6b05F2049fCb45"
+
+  const { commandPayload, finalPayload } =
+    await MiniKit.commandsAsync.sendTransaction({
+      transaction: [
+        {
+          address: WLD_TOKEN_ADDRESS,
+          abi: erc20Abi,
+          functionName: "transfer",
+          args: [
+            RECIPIENT_ADDRESS, // Address you want to send tokens to
+            parseEther("1"), // 1 WLD token
+          ],
+        },
+      ],
+    })
+}
+```
+
+---
+
+### Here we are introduced to a some new concepts:
+
+- **ABI**: Application Binary Interface. This is essentially a `guide` or an interface that tells developers how to interact with smart contracts. An **API** if you will, but for smart contracts.
+- **ERC20**: An standard interface for tokens on the [Ethereum blockchain](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/). It defines how tokens can be transferred, how to get the balance of an account, and other basic functionalities.
+- **parseEther**: A utility function in viem that converts a number to its representation with 18 decimal places. This is necessary because smart contracts often use integers not decimals, that's why we use a mantissa to represent the decimal places. For example, **1 WLD** token is represented as `1000000000000000000` in the smart contract.
