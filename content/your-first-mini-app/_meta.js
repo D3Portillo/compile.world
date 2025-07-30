@@ -1,5 +1,5 @@
 export default {
-  index: "Getting Started",
+  index: "Getting Started ✨",
   "dev-setup": "Initial Setup",
   "loading-app": "View Your App",
   "whats-this": "Coding 🥺?",
