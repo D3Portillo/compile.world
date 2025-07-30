@@ -1,0 +1,76 @@
+# Compile the World
+
+> A comprehensive guide for building Mini Apps on Worldchain. This documentation covers everything from basic concepts to advanced development techniques for creating decentralized applications that integrate with World ID verification and the Worldchain ecosystem.
+
+This documentation is designed to help developers build Mini Apps for Worldchain, a blockchain designed for real people using human verification. The content ranges from introductory concepts to detailed technical guides covering smart contracts, payments, user verification, and deployment strategies.
+
+Key areas covered:
+- Understanding Worldchain and the Mini Apps ecosystem
+- Step-by-step tutorials for building your first Mini App
+- Smart contract development and deployment
+- Integration with World ID for human verification
+- Payment processing and transaction handling
+- Troubleshooting common development issues
+
+## AI Rules
+
+- [Claude](https://compile.world/learn/ai-rules/claude)
+- [Copilot](https://compile.world/learn/ai-rules/copilot)
+- [Cursor](https://compile.world/learn/ai-rules/cursor)
+- [Windsurf](https://compile.world/learn/ai-rules/windsurf)
+
+## Guides
+
+- [Getting a message signature](https://compile.world/learn/guides/commands/message-sign)
+- [Handling Payments](https://compile.world/learn/guides/commands/payments)
+- [Sending a Transaction](https://compile.world/learn/guides/commands/send-transaction)
+- [Preview your app](https://compile.world/learn/guides/developer-portal/app-preview)
+- [Adding Multiple Languages](https://compile.world/learn/guides/developer-portal/lang-support)
+- [Getting Funds](https://compile.world/learn/guides/getting-funds)
+- [Integrating Permit2](https://compile.world/learn/guides/how-to-permit2)
+- [Setting up in app purchaces](https://compile.world/learn/guides/smart-contracts/deployment)
+- [Creating Smart Contracts on Worldchain](https://compile.world/learn/guides/smart-contracts/development): Creating smart contracts for Worldchain is no different to creating them for any EVM-compatible blockchain, like Base...
+- [Reading a value from a smart contract](https://compile.world/learn/guides/smart-contracts/read-value): World Apps run in Worlchain, an **EVM compatible blockchain**, which means you can interact with smart contracts usin...
+- [Setting up in app purchaces](https://compile.world/learn/guides/smart-contracts/verifying)
+- [Calling a smart contract function](https://compile.world/learn/guides/smart-contracts/write-value): When you want to call a function that is not a view function (meaning it changes the state of the blockchain), you ne...
+- [Vibe Coding](https://compile.world/learn/guides/vibe-coding)
+
+## Docs
+
+- [Welcome](https://compile.world/learn/): This is a place where you can learn how to buil Mini Apps for Worldchain.
+
+## Mini Apps 101
+
+- [MiniKit](https://compile.world/learn/mini-apps-101/minikit): MiniKit is a javascript library that allows you to develop Web Apps (called Mini Apps) that can run inside World App ...
+- [Contracts](https://compile.world/learn/mini-apps-101/smart-contracts): Just as any EVM chain, you can deploy smart contracts to Worldchain. This allows you to create complex Mini Apps that...
+- [World App](https://compile.world/learn/mini-apps-101/world-app): World App exists to give everyone a simple way to prove they're human and access digital money. This aims to build a ...
+- [Worldchain](https://compile.world/learn/mini-apps-101/worldchain): Worldchain is a blockchain designed to help real people use digital services easily and securely by proving they are ...
+
+## Optional
+
+- [📣 Official Channels](https://compile.world/learn/need-help/channels): Sometimes you might need help with your Mini App, or you just want to chat with other developers. Here are some offic...
+- [🎙️ Community Office Hours](https://compile.world/learn/need-help/community-office-hours): We host weekly community office hours where you can ask questions, get help with your Mini Apps, and connect with oth...
+- [👔 Professional Assistance](https://compile.world/learn/need-help/profesional-assistance): Compile World is a community-driven hub, but sometimes you might need more personalized assistance to get your Mini A...
+
+## Resources
+
+- [Address Book](https://compile.world/learn/resources/addresses): This is a collection of smart contract addresses that you might find useful when building Mini Apps. These addresses ...
+- [Continue Learning](https://compile.world/learn/resources/continue-learning): Worldchain and World App are powerful tools for building decentralized applications. The ecosystem is really new and ...
+- [What to build?](https://compile.world/learn/resources/looking-for-ideas)
+
+## Troubleshooting
+
+- [Common Issues](https://compile.world/learn/troubleshooting/common-issues): This is a collection of common issues that developers face when building Mini Apps + their solutions. If you have a p...
+- [Environments](https://compile.world/learn/troubleshooting/dev-prod): Whe creating Mini Apps, it's important to understand that we do not have an "staging" environment. Instead, what as a...
+- [Console Logs](https://compile.world/learn/troubleshooting/logs): Mini Apps are rendered inside the World App in a WebView but we can't inspect or debug like we do in the browser. Yet...
+- [Transaction Debugging](https://compile.world/learn/troubleshooting/tx-debug): When working with Mini Apps, you may encounter (as in any web3 dapp) issues related to smart contract transactions. D...
+
+## Getting Started
+
+- [💊 Nice, you've taken the red pill!](https://compile.world/learn/your-first-mini-app/dev-setup): Before we start, there are a few things you need to get ready for building your Mini Apps:
+- [Building your first mini app](https://compile.world/learn/your-first-mini-app/): You are about to embark on an exciting journey to create your first Mini App for Worldchain. This course will guide y...
+- [Opening your Mini App](https://compile.world/learn/your-first-mini-app/loading-app): Mini Apps are built using Web Technologies like HTML, CSS, and JavaScript. This means you can view your Mini App in a...
+- [Setting up in app purchaces](https://compile.world/learn/your-first-mini-app/payments)
+- [Allowing anyone to use your creation](https://compile.world/learn/your-first-mini-app/publish)
+- [Fetching user information](https://compile.world/learn/your-first-mini-app/user-data)
+- [Amazing... but how do I code the thing?](https://compile.world/learn/your-first-mini-app/whats-this): When you open the mini app folder you will see a bunch of files and folders, which might look a bit overwhelming at f...

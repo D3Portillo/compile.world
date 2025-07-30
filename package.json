@@ -7,6 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "prebuild": "node scripts/generate-llms-txt.js",
+    "generate-llms": "node scripts/generate-llms-txt.js",
+    "validate-llms": "node scripts/validate-llms-txt.js",
     "postbuild": "pagefind --site .next/server/app --output-path public/_pagefind"
   },
   "dependencies": {
@@ -27,6 +30,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "gray-matter": "^4.0.3",
     "pagefind": "^1.3.0",
     "tailwindcss": "^4",
     "tw-animate-css": "^1.3.5",
