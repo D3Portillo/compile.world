@@ -1,0 +1,48 @@
+---
+sidebarTitle: Coding with AI
+---
+
+import { Callout, Cards } from "nextra/components"
+import { RiClaudeLine } from "react-icons/ri"
+import { PiCursorClickFill, PiTerminalWindowBold } from "react-icons/pi"
+
+# AI Assisted Development
+
+This section covers how to use AI tools to assist with coding tasks, including setting up various AI models and integrating them into your development workflow.
+
+## Build faster with AI
+
+AI tools can significantly speed up your development process by automating repetitive tasks, generating code snippets. Here are some tools and frameworks you can explore:
+
+<Cards>
+  <Cards.Card
+    icon={<RiClaudeLine />}
+    title="Claude"
+    href="/learn/ai-rules/claude"
+  />
+  <Cards.Card
+    icon={<PiCursorClickFill className="scale-95" />}
+    title="Cursor"
+    href="/learn/ai-rules/cursor"
+  />
+  <Cards.Card
+    icon={<PiTerminalWindowBold className="scale-105" />}
+    title="Windsurf"
+    href="/learn/ai-rules/windsurf"
+  />
+</Cards>
+
+## Portable Context for AI Assistants
+
+[`LLMS.txt`](https://llmstxt.org/) is a standard for providing LLM-friendly documentation access. This project automatically generates `llms.txt` and `llms-full.txt` files to help you add as context to your AI assistants.
+
+- Short version - [llms.txt](https://www.compile.world/llms.txt)
+- Full version - [llms-full.txt](https://www.compile.world/llms-full.txt)
+
+---
+
+<Callout type="info">
+  This section is constantly evolving as new AI tools and models are released.
+  Stay tuned for updates and new guides on how to leverage AI in your coding
+  projects.
+</Callout>
